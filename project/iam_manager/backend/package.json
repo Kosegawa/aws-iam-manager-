@@ -1,0 +1,31 @@
+{
+  "name": "iam-user-management-backend",
+  "version": "1.0.0",
+  "description": "IAM User Management System Backend - Lambda Functions",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "package": "npm run build && npm ci --omit=dev && cd dist && powershell Compress-Archive -Path *,..\\node_modules -DestinationPath ..\\lambda.zip -Force && cd .. && npm ci"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.470.0",
+    "@aws-sdk/client-ses": "^3.470.0",
+    "@aws-sdk/lib-dynamodb": "^3.470.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.130",
+    "@types/node": "^20.10.5",
+    "@types/uuid": "^9.0.7",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.4",
+    "fast-check": "^3.15.0"
+  }
+}
